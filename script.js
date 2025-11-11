@@ -1,4 +1,3 @@
-
 // Prevent multiple navigations
 let isNavigating = false;
 
