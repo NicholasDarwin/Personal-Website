@@ -39,7 +39,8 @@ section { margin: 2rem 0; }
 .card ul { list-style: none; padding-left: 0; margin: 0; }
 .card ul li { padding: 0.35rem 0; margin-left: 0; }
 .projects-grid, .skills-grid, .awards-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
-.skill-tag, .tech-tag { font-size: 0.85rem; color: var(--muted); background: #fbfdff; border: 1px solid #eef6ff; padding: 0.25rem 0.5rem; border-radius: 999px; }
+.skill-tags, .project-tech { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.skill-tag, .tech-tag { font-size: 0.85rem; color: var(--muted); background: #fbfdff; border: 1px solid #eef6ff; padding: 0.35rem 0.65rem; border-radius: 999px; white-space: nowrap; }
 
 footer { max-width: 1000px; margin: 2.5rem auto; padding: 0 1rem 2rem; color: var(--muted); font-size: 0.9rem; }
 
