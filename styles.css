@@ -36,6 +36,8 @@ section { margin: 2rem 0; }
 .card h4 { margin-bottom: 0.25rem; font-size: 0.95rem; color: var(--text); }
 .date { color: var(--muted); font-size: 0.9rem; margin-bottom: 0.5rem; }
 .location { color: var(--muted); font-size: 0.9rem; }
+.card ul { list-style: none; padding-left: 0; margin: 0; }
+.card ul li { padding: 0.35rem 0; margin-left: 0; }
 .projects-grid, .skills-grid, .awards-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
 .skill-tag, .tech-tag { font-size: 0.85rem; color: var(--muted); background: #fbfdff; border: 1px solid #eef6ff; padding: 0.25rem 0.5rem; border-radius: 999px; }
 
@@ -44,5 +46,41 @@ footer { max-width: 1000px; margin: 2.5rem auto; padding: 0 1rem 2rem; color: va
 @media (max-width: 600px) {
   .nav-links { display: none; }
   .hero h1 { font-size: 1.5rem; }
+}
+
+/* Recent roles component (white horizontal cards) */
+.recent-roles { background: #ffffff; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; border: 1px solid #eef2f7; }
+.recent-title { font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: 0.75rem; text-transform: none; }
+.roles-list { display: flex; flex-direction: column; gap: 0.75rem; }
+.role-card { display: flex; align-items: center; justify-content: space-between; background: #fff; border: 1px solid #e6edf3; padding: 0.75rem; border-radius: 10px; box-shadow: 0 1px 0 rgba(16,24,40,0.03); }
+.role-left { display: flex; align-items: center; gap: 0.75rem; }
+.role-logo { width: 44px; height: 44px; border-radius: 8px; background: #f8fafc; display: flex; align-items: center; justify-content: center; color: var(--muted); font-weight: 700; font-size: 1rem; border: 1px solid #eef6ff; }
+.role-info { display: flex; flex-direction: column; }
+.role-company { font-weight: 700; color: var(--text); text-transform: lowercase; }
+.role-position { color: var(--muted); font-size: 0.95rem; }
+.role-date { color: var(--muted); font-size: 0.95rem; white-space: nowrap; margin-left: 1rem; }
+
+@media (max-width: 720px) {
+  .roles-list { gap: 0.5rem; }
+  .role-card { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+  .role-date { align-self: flex-end; }
+}
+
+/* Contact page styles */
+.contact-content { text-align: left; max-width: 720px; margin: 0 auto 0 0; }
+.contact-section .section-title { text-align: left; }
+.intro-text { font-size: 1.05rem; color: var(--muted); margin-bottom: 1.25rem; }
+.contact-links { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1rem; justify-content: flex-start; }
+.contact-link { display: inline-block; padding: 0.6rem 1rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.95rem; }
+.contact-link.primary { background: var(--accent); color: #fff; border: 1px solid transparent; }
+.contact-link.ghost { background: transparent; color: var(--accent); border: 1px solid rgba(11,102,255,0.12); }
+.get-in-touch { margin-top: 1.5rem; padding: 1.25rem; background: #eaf6ff; color: var(--text); border: 1px solid rgba(11,102,255,0.12); border-radius: 10px; }
+.get-in-touch h3 { margin-bottom: 0.5rem; color: var(--text); font-size: 1rem; }
+.get-in-touch p { color: var(--muted); line-height: 1.6; }
+.get-in-touch a { color: var(--accent); text-decoration: underline; }
+
+@media (max-width: 600px) {
+  .contact-links { flex-direction: column; }
+  .contact-link { width: 100%; text-align: left; }
 }
 
