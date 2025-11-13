@@ -44,6 +44,42 @@ section { margin: 2rem 0; }
 
 footer { max-width: 1000px; margin: 2.5rem auto; padding: 0 1rem 2rem; color: var(--muted); font-size: 0.9rem; }
 
+/* Fade-in upwards animations (home page only) */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+body.home-page .hero {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+body.home-page .hero h1 {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+body.home-page .hero .subtitle {
+  animation: fadeInUp 0.8s ease-out 0.1s both;
+}
+
+body.home-page .contact-info {
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+body.home-page .scroll-indicator {
+  animation: fadeInUp 0.8s ease-out 0.3s both;
+}
+
+body.home-page .recent-roles {
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
 @media (max-width: 600px) {
   .nav-links { display: none; }
   .hero h1 { font-size: 1.5rem; }
