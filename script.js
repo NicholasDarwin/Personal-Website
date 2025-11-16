@@ -16,6 +16,11 @@ function initMobileMenu() {
   const hamburger = document.getElementById('hamburger-toggle');
   const navMenu = document.getElementById('nav-menu');
   
+  console.log('Viewport width:', window.innerWidth);
+  console.log('Hamburger element:', hamburger);
+  console.log('Nav menu element:', navMenu);
+  console.log('Hamburger display:', window.getComputedStyle(hamburger)?.display);
+  
   if (!hamburger || !navMenu) {
     console.warn('Hamburger or nav menu not found');
     return;
@@ -23,8 +28,11 @@ function initMobileMenu() {
   
   // Prevent default behavior and toggle menu
   hamburger.addEventListener('click', (e) => {
+    console.log('Hamburger clicked!');
     e.preventDefault();
     e.stopPropagation();
+    const isActive = navMenu.classList.contains('active');
+    console.log('Menu currently active:', isActive, '-> toggling to', !isActive);
     navMenu.classList.toggle('active');
   });
   
