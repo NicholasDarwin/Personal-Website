@@ -16,9 +16,15 @@ function initMobileMenu() {
   const hamburger = document.getElementById('hamburger-toggle');
   const navMenu = document.getElementById('nav-menu');
   
-  if (!hamburger || !navMenu) return;
+  if (!hamburger || !navMenu) {
+    console.warn('Hamburger or nav menu not found');
+    return;
+  }
   
-  hamburger.addEventListener('click', () => {
+  // Prevent default behavior and toggle menu
+  hamburger.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
     navMenu.classList.toggle('active');
   });
   
@@ -28,8 +34,16 @@ function initMobileMenu() {
       navMenu.classList.remove('active');
     });
   });
+  
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('nav')) {
+      navMenu.classList.remove('active');
+    }
+  });
 }
 
+// Initialize when DOM is ready
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', () => {
     setActiveNavLink();
