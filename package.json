@@ -1,0 +1,14 @@
+{
+  "name": "nicholasdarwin-website",
+  "version": "1.0.0",
+  "description": "Nicholas Darwin's personal portfolio website",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  },
+  "author": "Nicholas Darwin",
+  "license": "MIT"
+}
