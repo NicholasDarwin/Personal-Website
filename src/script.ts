@@ -42,9 +42,15 @@ function initThemeToggle(): void {
 }
 
 function updateThemeIcon(theme: string, iconElement: HTMLElement): void {
-  // Moon for dark mode toggle (shows when in light mode)
-  // Sun for light mode toggle (shows when in dark mode)
-  iconElement.textContent = theme === 'dark' ? '☀️' : '🌙';
+  // Moon icon for light mode (click to go dark)
+  const moonPath: string = 'M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z';
+  // Sun icon for dark mode (click to go light)
+  const sunPath: string = 'M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0z';
+  
+  const pathElement: SVGPathElement | null = iconElement.querySelector('path');
+  if (pathElement) {
+    pathElement.setAttribute('d', theme === 'dark' ? sunPath : moonPath);
+  }
 }
 
 // Mobile menu toggle

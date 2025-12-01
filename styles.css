@@ -88,7 +88,8 @@ main { max-width: 1000px; margin: 2.5rem auto; padding: 0 1rem; }
 .hero h1 { font-size: 2rem; margin-bottom: 0.5rem; color: var(--accent); }
 .hero .subtitle { color: var(--muted); margin-bottom: 1rem; }
 .contact-info { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-.contact-info a { color: #000; text-decoration: none; font-weight: 500; }
+.contact-info a { color: var(--text); text-decoration: none; font-weight: 500; transition: color 0.3s ease; }
+.contact-info a:hover { color: var(--accent); }
 
 section { margin: 2rem 0; }
 .section-title { text-align: left; font-weight: 700; margin-bottom: 1rem; font-size: 1.25rem; color: var(--accent); }
@@ -217,7 +218,7 @@ body.home-page .recent-roles {
 
 /* Recent roles component (white horizontal cards) */
 .recent-roles { background: var(--card-bg); padding: 1rem; border-radius: 8px; margin-bottom: 1rem; border: 1px solid var(--card-border); transition: background-color 0.3s ease, border-color 0.3s ease; }
-.recent-title { font-size: 1.1rem; font-weight: 700; color: #000; margin-bottom: 0.75rem; text-transform: none; }
+.recent-title { font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: 0.75rem; text-transform: none; }
 .roles-list { display: flex; flex-direction: column; gap: 0.75rem; }
 .role-card { display: flex; align-items: center; justify-content: space-between; background: var(--card-bg); border: 1px solid var(--card-border); padding: 0.75rem; border-radius: 10px; box-shadow: 0 1px 0 rgba(16,24,40,0.03); transition: background-color 0.3s ease, border-color 0.3s ease; }
 .role-left { display: flex; align-items: center; gap: 0.75rem; }
@@ -254,38 +255,51 @@ body.home-page .recent-roles {
 /* Theme Toggle Button */
 .theme-toggle {
   position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: var(--accent);
-  border: none;
+  top: 1rem;
+  right: 1rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease, border-color 0.3s ease;
   z-index: 1000;
 }
 
 .theme-toggle:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 .theme-toggle:active {
-  transform: scale(0.95);
+  transform: translateY(0);
+}
+
+.theme-toggle svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--text);
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke 0.3s ease;
 }
 
 @media (max-width: 600px) {
   .theme-toggle {
-    bottom: 1.5rem;
-    right: 1.5rem;
-    width: 45px;
-    height: 45px;
-    font-size: 1.3rem;
+    top: 0.75rem;
+    right: 0.75rem;
+    width: 36px;
+    height: 36px;
+  }
+  .theme-toggle svg {
+    width: 18px;
+    height: 18px;
   }
 }
