@@ -112,12 +112,14 @@ nav { max-width: 1000px; margin: 0 auto; padding: 0.75rem 1rem; display: flex; a
 }
 
 main { max-width: 1000px; margin: 2.5rem auto; padding: 0 1rem; }
-.hero { text-align: center; padding: 4rem 1rem 3rem; border-bottom: 1px solid var(--card-border); margin-bottom: 3rem; }
-.hero h1 { font-size: 2.5rem; margin-bottom: 0.75rem; color: var(--text); font-weight: 700; }
-.hero .subtitle { color: var(--muted); margin-bottom: 1.5rem; font-size: 1.1rem; }
-.contact-info { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
-.contact-info a { color: var(--accent); text-decoration: none; font-weight: 600; transition: all 0.3s ease; border-bottom: 2px solid transparent; }
-.contact-info a:hover { border-bottom-color: var(--accent); }
+.hero { text-align: center; padding: 3rem 1rem; }
+.hero h1 { font-size: 2rem; margin-bottom: 0.5rem; color: var(--accent); }
+.hero .subtitle { color: var(--muted); margin-bottom: 1rem; }
+.contact-info { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.contact-info a { color: var(--text); text-decoration: none; font-weight: 500; transition: all 0.3s ease; }
+.contact-info a:hover { color: var(--accent); transform: translateY(-2px); }
+.scroll-indicator { margin-top: 2rem; font-size: 1.5rem; color: var(--muted); animation: bounce 2s infinite; }
+@keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-10px); } 60% { transform: translateY(-5px); } }
 
 section { margin: 2rem 0; }
 .section-title { text-align: left; font-weight: 700; margin-bottom: 2rem; font-size: 1.5rem; color: var(--text); border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; }
@@ -151,9 +153,62 @@ section { margin: 2rem 0; }
 footer { max-width: 1000px; margin: 2.5rem auto; padding: 0 1rem 2rem; color: var(--muted); font-size: 0.9rem; }
 
 /* Fade-in upwards animations (home page only) */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+body.home-page .hero {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+body.home-page .hero h1 {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+body.home-page .hero .subtitle {
+  animation: fadeInUp 0.8s ease-out 0.1s both;
+}
+
+body.home-page .contact-info {
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+body.home-page .scroll-indicator {
+  animation: fadeInUp 0.8s ease-out 0.3s both;
+}
+
+body.home-page .recent-roles {
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
 @media (max-width: 600px) {
-  .hero h1 { font-size: 1.75rem; }
-  .hero .subtitle { font-size: 1rem; }
+  .hero h1 { font-size: 1.5rem; }
+}
+
+/* Recent roles component (white horizontal cards) */
+.recent-roles { background: var(--card-bg); padding: 1rem; border-radius: 8px; margin-bottom: 1rem; border: 1px solid var(--card-border); transition: background-color 0.3s ease, border-color 0.3s ease; }
+.recent-title { font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: 0.75rem; text-transform: none; }
+.roles-list { display: flex; flex-direction: column; gap: 0.75rem; }
+.role-card { display: flex; align-items: center; justify-content: space-between; background: var(--card-bg); border: 1px solid var(--card-border); padding: 0.75rem; border-radius: 10px; box-shadow: 0 1px 0 rgba(16,24,40,0.03); transition: all 0.3s ease; cursor: pointer; }
+.role-card:hover { transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.1); border-color: var(--accent); }
+.role-left { display: flex; align-items: center; gap: 0.75rem; }
+.role-logo { width: 44px; height: 44px; border-radius: 8px; background: var(--subtle-bg); display: flex; align-items: center; justify-content: center; color: var(--muted); font-weight: 700; font-size: 1rem; border: 1px solid var(--subtle-border); object-fit: cover; }
+.role-info { display: flex; flex-direction: column; }
+.role-company { font-weight: 700; color: var(--accent); text-transform: lowercase; }
+.role-position { color: var(--muted); font-size: 0.95rem; }
+.role-date { color: var(--muted); font-size: 0.95rem; white-space: nowrap; margin-left: 1rem; }
+
+@media (max-width: 720px) {
+  .roles-list { gap: 0.5rem; }
+  .role-card { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+  .role-date { align-self: flex-end; }
 }
 
 /* Contact page styles */
